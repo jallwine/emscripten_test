@@ -83,12 +83,14 @@ First, get the source for libxml2 and a couple test files. The tutorial above us
     cd libxml2-2.9.0
 
 Next, steal a couple xml files to test with
+
     curl https://raw.github.com/kripken/xml.js/master/test.xsd -O
     curl https://raw.github.com/kripken/xml.js/master/test.xml -O
 
 We'll also need this file when we build it using emscripten, as xmllint depends on libz. 
 One of emscripten's tests actually builds libz, so we could run that test
 and copy over the library, but we'll just snag it from Alon's repo.
+
     curl https://raw.github.com/kripken/xml.js/master/libz.a -O
 
 Now, build libxml2 natively so we have something to compare against when we build it to js using emscripten. Notice the flags passed

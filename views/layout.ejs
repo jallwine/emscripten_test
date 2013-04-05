@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<script src="/js/jquery.js"></script>
+<script src="/js/xmllint.js"></script>
+
+<script>
+$(document).ready(function() {
+    $("#validate").click(function() {
+        var output = validateXML($("#xml").val(), $("#schema").val());
+        $("#output").html(output);
+    });
+});
+</script>
+
+</head>
+<body>
+
+Schema:
+<textarea id="schema"></textarea>
+
+XML:
+<textarea id="xml"></textarea>
+
+Output:
+<textarea id="output"></textarea>
+
+<button id="validate">Validate</button>
+</body>
+
+</html>

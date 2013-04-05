@@ -8,7 +8,7 @@
 $(document).ready(function() {
     $("#validate").click(function() {
         var output = validateXML($("#xml").val(), $("#schema").val());
-        $("#output").html(output);
+        $("#output").val(output);
     });
 });
 </script>
@@ -16,14 +16,17 @@ $(document).ready(function() {
 </head>
 <body>
 
-Schema:
-<textarea id="schema"></textarea>
+Schema:<br/>
+<textarea rows="10", cols="72" id="schema"></textarea>
+<br/>
 
-XML:
-<textarea id="xml"></textarea>
+XML:<br/>
+<textarea rows="10" cols="72" id="xml"></textarea>
+<br/>
 
-Output:
-<textarea id="output"></textarea>
+Output:<br/>
+<textarea rows="10" cols="72" id="output"></textarea>
+<br/>
 
 <button id="validate">Validate</button>
 </body>

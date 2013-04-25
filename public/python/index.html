@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Empythoned</title>
+    <script>
+      function start() {
+        var input = document.getElementById('input')
+          , output = document.getElementById('output')
+          , button = document.getElementById('button')
+          , worker = new Worker('worker.js')
+          , loaded = false
+          , handler = function (e) {
+            if (!loaded) {
+              loaded = true;
+              button.value = "Execute";
+              input.disabled = false;
+              button.disabled = false;
+              return;
+            }
+            output.value += e.data;
+          };
+
+
+        worker.addEventListener('message', handler, false);
+
+        button.onclick = function() {
+          worker.postMessage(input.value);
+        };
+      };
+      window.onload = start;
+    </script>
+  </head>
+  <body>
+    <h1>Empythoned Demo</h1>
+    <textarea disabled="true" id="input" style="font-family: monospace; width: 80%" rows="8">print 'Hello World'</textarea>
+    <input disabled="true" id="button" type="button" value="loading........." style="display: block; margin: auto" />
+    <textarea id="output" style="font-family: monospace; width: 80%" rows="8"></textarea>
+    <hr>
+  </body>
+</html>

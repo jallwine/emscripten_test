@@ -8,10 +8,12 @@
     
     importScripts('python.js');
 
-    Python.initialize(null, function(chr) {
+    var output_and_error = function(chr) {
         if (chr !== null) 
             postMessage(String.fromCharCode(chr));
-    });
+    };
+
+    Python.initialize(null, output_and_error, output_and_error);
 
     var msgHandler = function (e) {
         if (Python.isFinished(e.data)) {
